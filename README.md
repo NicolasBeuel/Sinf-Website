@@ -1,5 +1,6 @@
-# LINFO1212 - Projet final
-Remise du projet final dans le cadre du cours LINFO1212 (UCLouvain)
+# LINFO1212 - Sinf-Website
+
+Ce projet à pour but de créer une platforme permettant de mettre en lien les étudiants de sciences informatiques.
 
 ## Contexte
 
