@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- sources -->
+        <%- include('comp-link'); -%>
+        <title>Index | Sinf Students</title>
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+
+    <body>
+        <!-- header -->
+        <%- include('comp-header'); -%>
+
+        <% if (!locals.fullname) { %>
+        <div class="jumbotron top-mess" id="noLogHeader">
+            <h1 class="display-4">Welcome to the Computer Science Students website</h1>
+            <p class="lead">
+                This site was created to simplify the search and contact of computer science students. <br>
+                In order to respect the wishes of our students, a system has been set up on this site allowing our
+                students to choose precisely what they want to display publicly. In order to access all the
+                information, you must log in.    <br>
+                Please note: Only UCLouvain students have the possibility to create an account on our platform.
+            </p>
+            <hr class="my-4">
+            <p>If you are a UCLouvain student you can create an account here.</p>
+            <a class="btn btn-secondary btn-lg" href="/loginSignup" role="button">Sign up </a>
+        </div>
+        <%}%>
+
+        <section id="section" <%if(locals.fullname){%> style="min-height: 87vh" <%}%>>
+            <% students.map((student)=>{ %>
+                <a href="/persoPage?user=<%= student._id %>" class="persoImage">
+                    <figure>
+                        <img src="<%= student.profilePicture %>" alt="User picture">
+                    </figure>
+
+                    <div class="desc">
+                        <span><%= student.fullname %></span>
+                        <span><%= student.studyYear %></span>
+                    </div>
+                </a>
+            <% }) %>
+        </section>
+
+        <button id="modeProfiles" type="button" class="btn btn-secondary">Load more profiles</button>
+
+        <!-- footer -->
+        <%- include('comp-footer&script'); -%>
+
+        <script type="text/javascript">
+            $( document ).ready(() => {
+                //focus search
+                let url = location.search
+                let query = url.substr(1);
+                let result = {};
+                query.split("&").forEach(function(part) {
+                    var item = part.split("=");
+                    result[item[0]] = decodeURIComponent(item[1]);
+                });
+                if(result.focus){document.getElementById("searchBar").focus()}
+
+                var nbProfiles = 1;
+
+                //Load more profiles
+                document.getElementById("modeProfiles").addEventListener("click",()=>{
+                    $.post("/search",
+                        {
+                            word: document.getElementById('searchBar').value,
+                            nbProfiles: nbProfiles,
+
+                        },
+                        (data, status) => {
+                            if(status ==="success"){
+                                if(data.length < 10){
+                                    document.getElementById('modeProfiles').innerHTML = "No more profiles to load"
+                                    document.getElementById('modeProfiles').disabled = true
+                                }else{
+                                    nbProfiles += 1
+                                    document.getElementById('section').innerHTML += data
+                                }
+                            }
+                        });
+                })
+
+                //search
+                document.getElementById("searchBar").addEventListener("input",()=>{
+                    document.getElementById('modeProfiles').innerHTML = "Load more profiles"
+                    document.getElementById('modeProfiles').disabled = false
+                    nbProfiles = 1
+
+                    $.post("/search",
+                        {
+                            word: document.getElementById('searchBar').value,
+                            nbProfiles: 0
+                        },
+                        (data, status) => {
+                            if(status =="success"){
+                                if(data === "EMPTY"){
+                                    try{
+                                        document.getElementById("noLogHeader").style.display="none"}catch (e) {
+                                    }
+
+                                    document.getElementById('section').innerHTML = "<div class=\"alert alert-warning\" role=\"alert\" style=\"width: 70vw; margin: auto\">\n" +
+                                        "            <h4 class=\"alert-heading\">Oops</h4>\n" +
+                                        "            <p>\n" +
+                                        "                None of our data matches your request. <br>\n" +
+                                        "                As a reminder, our research works on the following fields:\n" +
+                                        "                <ul>\n" +
+                                        "                    <li>Name</li>\n" +
+                                        "                    <li>Top skills</li>\n" +
+                                        "                    <li>Other skills</li>\n" +
+                                        "                    <li>Year of study</li>\n" +
+                                        "                    <li>Option</li>\n" +
+                                        "                    <li>Contacts & links</li>\n" +
+                                        "                </ul>\n" +
+                                        "            </p>\n" +
+                                        "            <hr>\n" +
+                                        "            <p class=\"mb-0\">Maybe try another search or log in if you are not.</p>\n" +
+                                        "        </div>"
+                                }else{
+                                    try{
+                                        document.getElementById("noLogHeader").style.display="block"}catch (e) {
+                                    }
+                                    document.getElementById("section").innerHTML = data
+                                }
+                            }
+                        });
+                })
+
+            });
+        </script>
+    </body>
+</html>

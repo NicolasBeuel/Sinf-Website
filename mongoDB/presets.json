@@ -1,0 +1,237 @@
+{
+  "type" : "language",
+  "name" : "Java",
+  "icon":"/img/java.webp",
+  "color1" : "#2d6fb4",
+  "color2": "#f5592c"
+}
+{
+  "type" : "language",
+  "name" : "AngularJS",
+  "icon":"/img/angular.svg",
+  "color1" : "#e23237",
+  "color2": "#b52e31"
+}
+{
+  "type" : "language",
+  "name" : "Arduino",
+  "icon":"/img/arduino.png",
+  "color1" : "#249b9f",
+  "color2": "#249b9f"
+}
+{
+  "type" : "language",
+  "name" : "CSS",
+  "icon":"/img/css.png",
+  "color1" : "#169fdb",
+  "color2": "#016eb9"
+}
+{
+  "type" : "language",
+  "name" : "C#",
+  "icon":"/img/csharp.png",
+  "color1" : "#9a5196",
+  "color2": "#9a5196"
+}
+{
+  "type" : "language",
+  "name" : "C++",
+  "icon":"/img/c++.png",
+  "color1" : "#689bd1",
+  "color2": "#0b5b9b"
+}
+{
+  "type" : "language",
+  "name" : "C",
+  "icon":"/img/c.png",
+  "color1" : "#5c6dbd",
+  "color2": "#354aa8"
+}
+{
+  "type" : "language",
+  "name" : "Dart",
+  "icon":"/img/dart.png",
+  "color1" : "#22d1b8",
+  "color2": "#1483c5"
+}
+{
+  "type" : "language",
+  "name" : "Django",
+  "icon":"/img/django.png",
+  "color1" : "#092e20",
+  "color2": "#092e20"
+}
+{
+  "type" : "language",
+  "name" : "HTML",
+  "icon":"/img/html.png",
+  "color1" : "#f16529",
+  "color2": "#e44d26"
+}
+{
+  "type" : "language",
+  "name" : "Go",
+  "icon":"/img/go.png",
+  "color1" : "#00acd7",
+  "color2": "#00acd7"
+}
+{
+  "type" : "language",
+  "name" : "Ionic",
+  "icon":"/img/ionic.png",
+  "color1" : "#4a8af9",
+  "color2": "#4a8af9"
+}
+{
+  "type" : "language",
+  "name" : "Javascript",
+  "icon":"/img/javascript.png",
+  "color1" : "#d5ba31",
+  "color2": "#d5ba31"
+}
+{
+  "type" : "language",
+  "name" : "JQuery",
+  "icon":"/img/jquery.png",
+  "color1" : "#207aaa",
+  "color2": "#207aaa"
+}
+{
+  "type" : "language",
+  "name" : "PHP",
+  "icon":"/img/php.png",
+  "color1" : "#8a94bc",
+  "color2": "#232531"
+}
+{
+  "type" : "language",
+  "name" : "Python",
+  "icon":"/img/python.png",
+  "color1" : "#3771a0",
+  "color2": "#fecc49"
+}
+{
+  "type" : "language",
+  "name" : "React",
+  "icon":"/img/react.png",
+  "color1" : "#67daf9",
+  "color2": "#67daf9"
+}
+{
+  "type" : "language",
+  "name" : "Ruby",
+  "icon":"/img/ruby.png",
+  "color1" : "#b24130",
+  "color2": "#9e3834"
+}
+{
+  "type" : "language",
+  "name" : "Swift",
+  "icon":"/img/swift.png",
+  "color1" : "#f7723c",
+  "color2": "#fa2d2e"
+}
+
+
+
+
+
+
+
+{
+  "type" : "social",
+  "name" : "facebook",
+  "icon":"/img/facebook.png",
+  "link" : true,
+  "username": true,
+  "dataSep" : ""
+}
+{
+"type" : "social",
+"name" : "discord",
+"icon":"/img/discord.svg",
+"link" : false,
+"username": true,
+"dataSep" : "#"
+}
+{
+"type" : "social",
+"name" : "github",
+"icon":"/img/github.png",
+"link" : true,
+"username": true,
+"dataSep" : ""
+}
+{
+"type" : "social",
+"name" : "mail",
+"icon":"/img/mail.png",
+"link" : false,
+"username": true,
+"dataSep" : "@"
+}
+{
+"type" : "social",
+"name" : "linkedin",
+"icon":"/img/linkedin.png",
+"link" : true,
+"username": true,
+"dataSep" : ""
+}
+{
+"type" : "social",
+"name" : "wirenotes",
+"icon":"/img/wirenotes.png",
+"link" : true,
+"username": true,
+"dataSep" : ""
+}
+{
+"type" : "social",
+"name" : "bitbucket",
+"icon":"/img/bitbucket.png",
+"link" : true,
+"username": true,
+"dataSep" : ""
+}
+{
+  "type" : "minor",
+  "list" : [
+    "Approfondissement en sciences informatiques",
+    "Mineure d'accès au master en économie",
+    "Mineure en architecture",
+    "Mineure en culture et création",
+    "Mineure en culture scientifique",
+    "Mineure en développement durable",
+    "Mineure en développement et environnement",
+    "Mineure en droit (accès)",
+    "Mineure en droit (ouverture)",
+    "Mineure en esprit d'entreprendre",
+    "Mineure en études de genre",
+    "Mineure en études européennes",
+    "Mineure en études littéraires",
+    "Mineure en géographie",
+    "Mineure en gestion préparatoire au master en sciences de gestion",
+    "Mineure en information et communication",
+    "Mineure en linguistique",
+    "Mineure en musicologie",
+    "Mineure en philosophie",
+    "Mineure en sciences humaines et sociales",
+    "Mineure en statistique, sciences actuarielles et science des données"
+  ]
+}
+
+{
+  "type" : "master",
+  "list" : [
+    "Master [120] en sciences informatiques - Option en intelligence artificielle: données massives, optimisation et algorithmes",
+    "Master [120] en sciences informatiques - Option en ingénierie logicielle et systèmes de programmation",
+    "Master [120] en sciences informatiques - Option en sécurité et réseaux informatiques",
+    "Master [120] en sciences informatiques - Science des données et mathématiques appliquées",
+    "Master [120] en sciences informatiques - Option : \"Enjeux de l'entreprise\" ",
+    "Master [120] en sciences informatiques - Formation interdisciplinaire en création d'entreprise - CPME ",
+    "Master [120] en sciences des données",
+    "Master [60] en sciences informatiques",
+    "Other"
+  ]
+}

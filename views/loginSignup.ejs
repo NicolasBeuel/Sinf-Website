@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- sources -->
+        <%- include('comp-link'); -%>
+        <title>Log in & Sign up | Sinf Students</title>
+        <link rel="stylesheet" href="/css/loginSignup.css">
+    </head>
+
+    <body>
+        <!-- header -->
+        <%- include('comp-header'); -%>
+        <div class="title">
+            <h2>Log in</h2>
+            <h2>Sign up</h2>
+        </div>
+
+        <section>
+            <form class="" action="/login" method="post">
+                <% if (locals.err) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= err %>
+                </div>
+                <% } %>
+                <div class="div-input">
+                    <label for='login-email'>Email</label><input class="form-control" type="text" id="login-email" name="email" required>
+                </div>
+
+                <div class="div-input">
+                    <label for='login-password'>Password</label><input class="form-control" type="password" id="login-password" name="password" required>
+                </div>
+
+                <input class="btn btn-secondary" type="submit" value="Log in">
+            </form>
+
+            <form class="" action="/singup" method="post">
+                <% if (locals.validEnter) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= validEnter %>
+                    </div>
+                <% } %>
+
+                <% if (locals.sigUpErr) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= sigUpErr %>
+                    </div>
+                <% } %>
+
+                <div class="div-input">
+                    <label for='singup-email'>Email</label><input class="form-control" type="email" id="singup-email" name="email" maxlength="100" required data-toggle="popover" data-trigger="focus" title="Restriction" data-content="Your email must be for student and come from the uclouvain. example@student.uclouvain.be">
+                </div>
+
+                <div class="div-input">
+                    <label for='singup-password'>Password</label><input class="form-control" type="password" id="singup-password" name="password" maxlength="32" minlength="8" required data-toggle="popover" data-trigger="focus" title="Restriction" data-content="Your password must contain between 8 and 32 characters.">
+                </div>
+
+                <div class="div-input">
+                    <label for='singup-name'>Full name</label><input class="form-control" type="text" id="singup-name" name="name" maxlength="100" required>
+                </div>
+
+                <input class="btn btn-secondary" type="submit" value="Sign up">
+            </form>
+        </section>
+
+        <!-- footer -->
+        <%- include('comp-footer&script'); -%>
+
+        <script type="text/javascript">
+            $( document ).ready(() => {
+                $('#singup-email').popover({
+                    trigger: 'focus'
+                })
+                $('#singup-password').popover({
+                    trigger: 'focus'
+                })
+            });
+        </script>
+    </body>
+</html>

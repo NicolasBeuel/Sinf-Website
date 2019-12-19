@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- sources -->
+        <%- include('comp-link'); -%>
+        <title>Edit page perso | Sinf Students</title>
+        <link rel="stylesheet" href="/css/editPersoPage.css">
+        <!--<meta http-equiv="refresh" content="1">-->
+    </head>
+
+    <body>
+        <!-- header -->
+        <%- include('comp-header'); -%>
+
+        <section>
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="sect-left">
+
+                    <!-- Upload image -->
+                    <figure>
+                        <img id="apper" src="<%= student.profilePicture %>" alt="">
+                    </figure>
+
+                    <div class="input-image">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Profile picture</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="profilePicture" id="profilePicture" accept="image/png, image/jpeg">
+                                <label class="custom-file-label" for="profilePicture" aria-describedby="emailHelp">Choose file</label>
+                            </div>
+                        </div>
+                        <small class="form-text text-muted">The image used must be square or portrait format. Its width must be at least 512px.</small>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="input-group input-description">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="description">Description</label>
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea" name="description" id="description" maxlength="200"><%=student.description%></textarea>
+                    </div>
+
+                    <div class="toShow">
+                        <fieldset>
+                            <legend>View gestion</legend>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-profile" id="toShow-profile" <%= (locals.student.toDisplay.profile) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-profile" >Profile public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-description" id="toShow-description" <%= (locals.student.toDisplay.description) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-description">Description public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-profilePicture" id="toShow-profilePicture" <%= (locals.student.toDisplay.profilePicture) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-profilePicture">Profile picture public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-studyYear" id="toShow-studyYear" <%= (locals.student.toDisplay.studyYear) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-studyYear">Study year public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-option" id="toShow-option" <%= (locals.student.toDisplay.option) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-option">Minor/Option Public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-topSkills" id="toShow-topSkills" <%= (locals.student.toDisplay.topSkills) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-topSkills">Top skills public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-otherSkills" id="toShow-otherSkills" <%= (locals.student.toDisplay.otherSkills) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-otherSkills">Others skills public</label>
+                                </div>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="toShow-links" id="toShow-links" <%= (locals.student.toDisplay.links) ? 'checked': '' %>>
+                                    <label class="custom-control-label" for="toShow-links">Contacts/links public</label>
+                                </div>
+                        </fieldset>
+                        <small class="form-text text-muted">Here you can manage what can be seen by users who are not logged in.</small>
+                    </div>
+                </div>
+
+                <div class="sect-middle">
+                    <fieldset>
+                        <legend>Study Year</legend>
+                        <!-- Study Year -->
+                        <div class="checkBox-studyYear">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="studyYear" id="Bac1" value="Bac1" <%= (student.studyYear == "Bac1") ? "checked" : ''%>>
+                                <label class="form-check-label" for="Bac1">Bac1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="studyYear" id="Bac2" value="Bac2" <%= (student.studyYear == "Bac2") ? "checked" : ''%>>
+                                <label class="form-check-label" for="Bac2">Bac2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="studyYear" id="Bac3" value="Bac3" <%= (student.studyYear == "Bac3") ? "checked" : ''%>>
+                                <label class="form-check-label" for="Bac3">Bac3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="studyYear" id="M1" value="M1" <%= (student.studyYear == "M1") ? "checked" : ''%>>
+                                <label class="form-check-label" for="M1">M1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="studyYear" id="M2" value="M2" <%= (student.studyYear == "M2") ? "checked" : ''%>>
+                                <label class="form-check-label" for="M2">M2</label>
+                            </div>
+                        </div>
+
+                        <!-- Mineur -->
+                        <div class="form-group" id="minor" <%= (student.studyYear == "Bac3" || student.studyYear == "Bac2" ) ? '' : 'style=display:none'%>>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="minor-option">Minor</label>
+                                </div>
+                                <select class="custom-select" id="minor-option" name="minor">
+                                    <% data.map((e)=>{if (e.type == "minor") {
+                                        for(var i =0; i<e.list.length;i++){
+                                            if(e.list[i] == student.option){%>
+                                                <option value="<%=e.list[i] %>" selected><%=e.list[i] %></option>
+                                            <%}else{%>
+                                                 <option value="<%=e.list[i] %>"><%=e.list[i] %></option>
+                                            <%
+                                        }}}}) %>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Master's orientation -->
+                        <div class="form-group" id="orient" <%= (student.studyYear == "M1" || student.studyYear == "M2") ? '' : 'style=display:none'%>>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="orient-option">Master's orientation</label>
+                                </div>
+                                <select class="custom-select" id="orient-option" name="master">
+                                    <% data.map((e)=>{if (e.type == "master") {
+                                    for(var i =0; i<e.list.length;i++){
+                                        if(e.list[i] == student.option){%>
+                                            <option value="<%=e.list[i] %>" selected><%=e.list[i] %></option>
+                                        <%}else{%>
+                                            <option value="<%=e.list[i] %>"><%=e.list[i] %></option>
+                                        <%
+                                    }}}}) %>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- TOP Skills -->
+                    <fieldset class="topSkills">
+                        <legend>Top Skills</legend>
+                        <% for(var i=1; i<4; i++) { %>
+                            <div class="form-group">
+                                <div class="input-group mb-3 topSkills-lang">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="orient-option">Language</label>
+                                    </div>
+                                    <select class="custom-select" id="orient-option" name="topSkillLang<%=i %>">
+                                        <%if(locals.student.topSkills && locals.student.topSkills[i]){}else{%><option value="none" selected disabled hidden>None</option><%}%>
+                                        <% data.map((e)=>{
+                                            if (e.type == "language") {
+                                                if(locals.student.topSkills && locals.student.topSkills[i] && student.topSkills[i].name == e.name){%>
+                                                    <option value="<%=e.name %>" selected><%=e.name %></option>
+                                                <%}else{%>
+                                                    <option value="<%=e.name %>"><%=e.name %> </option>
+                                        <%} }}) %>
+                                    </select>
+                                </div>
+
+
+                                <div class="input-group mb-3 topSkills-num">
+                                    <input name="topSkillPour<%=i %>" value="<%= (locals.student.topSkills && locals.student.topSkills[i]) ? student.topSkills[i].pourcent : ''%>" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" max="100" min="0">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    </fieldset>
+
+                    <!-- Other skills -->
+                    <fieldset class="otherSkills">
+                        <legend>Other Skills</legend>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="otherSkills">Skills</label>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea" name="otherSkills" id="otherSkills" maxlength="600"><% (locals.student.otherSkills) ? student.otherSkills.map((skill)=>{%><%=skill%>;<%}) : ''%></textarea>
+                        </div>
+                        <small class="form-text text-muted">Create a list of all your skills here using the ";" as a separator.</small>
+                    </fieldset>
+
+
+                </div>
+
+                <div class="sect-right">
+                    <!-- Contacts -->
+                    <fieldset class="contacts">
+                        <legend>Contacts & Link</legend>
+                        <%
+                        data.map((e)=>{
+                            if (e.type == "social") {
+                        %>
+
+                        <span><%= e.name%></span>
+                        <div class="form-row">
+                            <%if (e.username){%>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Name</label>
+                                <input name="<%= e.name%>-username" type="text" class="form-control mb-2 input-username" id="inlineFormInput" value="<%= (locals.student.links && student.links[e.name]) ? student.links[e.name].username:'' %>" placeholder="Username">
+                            </div>
+                            <%}%>
+                            <%if(e.dataSep){%>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInputGroup"></label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text" style="width: 60px"><%= e.dataSep%></div>
+                                    </div>
+                                    <input name="<%= e.name%>-data" type="text" class="form-control input-dataSep" id="inlineFormInputGroup" value="<%= (locals.student.links && student.links[e.name] && locals.student.links[e.name].data) ? student.links[e.name].data.split(e.dataSep)[1] :''%>">
+                                </div>
+                            </div>
+                            <%}%>
+                            <%if(e.link){%>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInputGroup"></label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text" style="width: 60px">Link</div>
+                                    </div>
+                                    <input name="<%= e.name%>-link" type="text" class="form-control input-link" id="inlineFormInputGroup" value="<%= (locals.student.links && student.links[e.name] && locals.student.links[e.name].link) ? student.links[e.name].link :''%>">
+                                </div>
+                            </div>
+                            <%}%>
+                        </div>
+                        <%}})%>
+                    </fieldset>
+                    <button type="submit" class="btn btn-secondary btn-save">Save</button>
+                    <a href="/" class="btn btn-danger" style="margin-top: 2vh;">Cancel</a>
+                </div>
+            </form>
+        </section>
+
+        <!-- footer -->
+        <%- include('comp-footer&script'); -%>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+        <script type="text/javascript">
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        let img = new Image();
+                        img.onload = function () {
+                            if (this.width > 511 && this.height > 511 && this.width <= this.height) {
+                                $('#apper').attr('src', e.target.result);
+                                $(".custom-file-input").siblings(".custom-file-label").addClass("selected").html($(".custom-file-input").val().split("\\").pop());
+                            }else{
+                                alertify.set('notifier','position', 'top-center');
+                                alertify.error('Wrong dimensions, please use only square or portrait formats of at least 512px');
+                            }
+                        }
+                        img.src = e.target.result;
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+        $("#profilePicture").change(function() {
+            readURL(this);
+        });
+
+        document.getElementsByName('studyYear').forEach((e)=>{
+            if(e.value === "Bac1"){
+                e.addEventListener("click", (e)=>{
+                    document.getElementById('minor').style.display = "none"
+                    document.getElementById('orient').style.display = "none"
+                })
+            }
+
+            if(e.value === "Bac2" || e.value === "Bac3"){
+                e.addEventListener("click", (e)=>{
+                    document.getElementById('minor').style.display = "block"
+                    document.getElementById('orient').style.display = "none"
+                })
+            }
+
+            if(e.value === "M1" || e.value === "M2"){
+                e.addEventListener("click", (e)=>{
+                    document.getElementById('minor').style.display = "none"
+                    document.getElementById('orient').style.display = "block"
+                })
+            }
+
+        })
+        </script>
+    </body>
+</html>

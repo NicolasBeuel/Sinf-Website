@@ -1,0 +1,30 @@
+footer{
+    margin-top: 3vh;
+    height: 25vh;
+    width: 100vw;
+    background-color: #0a1015;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a, footer a:hover, footer a:active{
+    color :#8e44ad;
+}
+
+footer div{
+    display: flex;
+    width: 35vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer div a{
+    text-align: center;
+    width: 10vw;
+    color: white;
+}footer div a:hover, footer div a:active{
+    color: #ecf0f1;
+}

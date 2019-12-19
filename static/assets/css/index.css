@@ -1,0 +1,101 @@
+body{
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section{
+    min-height: 60vh;
+    width: 85vw;
+    margin: auto;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+section a:hover, section a:visited, section a:link, section a:active {
+    text-decoration-color: rgba(0,0,0,0)
+}
+
+.top-mess{
+    width: 80vw;
+    margin: auto;
+
+    background-image: url("https://store-images.s-microsoft.com/image/apps.53029.9007199266525955.8c4385ac-fc48-4b5c-89e7-f1d71f13d5a4.e7cc24ff-3a7a-4062-bdcf-c2003317ebc3?w=672&h=378&q=80&mode=letterbox&background=%23FFE4E4E4&format=jpg");
+    background-color: #2a2a2a;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px 0 20px 0;
+    color: white;
+    box-shadow: rgba(0,0,0,0.56) 4px 4px 12px;
+}
+.top-mess h1{
+    font-size: 2.5em;
+}
+
+.top-mess hr{
+    border-color: rgba(255,255,255,0.4);
+}
+
+.top-mess p{
+    font-size: 1.1em;
+}
+
+.persoImage {
+    margin: 2vh 2vw;
+    width: 300px;
+    height: 300px;
+    border: 0px solid black;
+    border-radius: 10px 0 10px 0;
+    z-index: 1;
+}
+
+.persoImage figure{
+    border-radius: 10px 0 10px 0;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    box-shadow: rgba(0,0,0,0.42) 3px 3px 9px;
+}
+
+.persoImage figure img{
+    width: 100%;
+    display: block;
+}
+
+.desc {
+    z-index: 2;
+    position: relative;
+    left: 3vw;
+    bottom: 3vh;
+    padding: 0 1vh;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 0px white solid;
+    border-radius: 10px 0 10px 0;
+    color: black;
+    background-color: rgba(255,255,255,0.85);
+    box-shadow: rgba(0,0,0,0.42) 3px 3px 9px;
+}
+
+.desc span:last-child{
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+
+
+.persoImage figure:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#modeProfiles{
+    margin-bottom: 50px;
+}

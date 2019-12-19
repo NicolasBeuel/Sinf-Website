@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+body {
+  background: #000;
+}
+.hidden {
+  opacity:0;
+}
+
+body::after{
+    background: url("/img/backErr404.jpg");
+    opacity: 0.2;
+}
+.console-container {
+    font-size: 90px;
+    font-weight: 800;
+    font-family: 'Orbitron', cursive;
+    font-size:4em;
+    text-align:center;
+    height:200px;
+    width:60%;
+    display:block;
+    position:absolute;
+    color:white;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    text-shadow: #35cc25 1px 1px 5px;
+}
+
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+    text-shadow: white 1px 1px 5px;
+}
+
+section {
+    align-items: center;
+}

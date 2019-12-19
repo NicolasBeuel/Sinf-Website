@@ -1,0 +1,273 @@
+section {
+    display: flex;
+    margin-top: 5vh;
+    min-height: 80vh;
+    align-items: inherit;
+    justify-content: space-around;
+}
+
+.sect-left, .sect-middle, .sect-right{ margin:0; padding: 0;}
+.sect-left{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 30vw;
+}
+.sect-middle{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+}
+.sect-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 20vw;
+}
+.perso{
+    margin-top: 5vh;
+    width: 20vw;
+    background-color: #ffffff;
+    border-radius: 20px 0 20px 0;
+    box-shadow: rgba(0,0,0,0.3) 3px 3px 6px;
+    height: min-content;
+}
+.perso figure {
+    border-radius: 20px 0 0 0;
+    width: 20vw;
+    height: 20vw; /* To get a 1:1 image format*/
+    overflow: hidden;
+}
+.perso figure img{ display: block; width: 20vw;}
+
+.perso h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.perso h2 {
+    padding: 10px;
+    width: 100%;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.perso p {
+    padding: 0 10px;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.sect-middle h3, .sect-right h3{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3em;
+}
+
+.topSkills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topSkill{
+    margin: 2vh 0;
+    padding: 0;
+    width: min-content;
+    height: fit-content;
+    position: relative;
+}
+
+.topSkill figure{
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    margin-top:-170px;
+    margin-left: 50px; /*a rélgler*/
+}
+
+.topSkill figure img{
+    width: 100%;
+    display: block;
+}
+
+.topSkill-inf{
+    font-family:"Manjari Regular";
+    width : 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    margin-top:-40px;
+    font-family: 'Orbitron', sans-serif;
+}
+.topSkill-inf span{
+    font-size: 1.5em;
+}
+
+
+.sect-middle h3:nth-of-type(2){
+    margin: 5vh 0;
+}
+
+.contacts{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 30px 10px;
+    width: 40vw;
+}
+
+.contact{
+    margin: 0;
+    text-decoration: none;
+    color : black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.contact figure{
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.contact figure img{
+    width: 100%;
+    display: block;
+}
+
+.contact span{
+    border-left: 2px solid #34495e;
+    text-decoration: none;
+    margin-left: 1vw;
+    padding-left: 1vw;
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sect-right h3{
+    margin: 5vh 0;
+}
+
+.otherSkills ul{
+    width: 12vw;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+
+.otherSkills li:before {
+    content: "\00BB \0020";
+}
+
+.otherSkills li {
+    font-size: 1.2em;
+    margin: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* ----- Media screen ----- */
+
+
+@media only screen and (max-width: 1600px) {
+    .topSkill {
+        transform: scale(0.8);
+        margin: 2vh -1vw;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .topSkill {
+        transform: scale(0.7);
+        margin: 2vh -2vw;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    section{
+        flex-direction: column;
+    }
+    .sect-left, .sect-middle, .sect-right{ width: 100vw;}
+
+    .perso{
+        width: 50vw;
+        margin-bottom: 5vh;
+    }
+    .perso figure {
+        width: 50vw;
+        height: 50vw;
+    }
+    .perso figure img{ display: block; width: 50vw;}
+}
+
+
+@media only screen and (max-width: 640px) {
+    .topSkills{
+        flex-direction: column;
+    }
+    .contacts{
+        grid-template-columns: auto;
+        width: 80vw;
+    }
+}
+
+/* ----- Code from Lib -----*/
+
+
+.GaugeMeter{
+    Position: Relative;
+    Text-Align: Center;
+    Overflow: Hidden;
+    Cursor: Default;
+}
+
+.GaugeMeter SPAN,
+.GaugeMeter B{
+    Margin:	0 23%;
+    Width: 54%;
+    Position: Absolute;
+    Text-Align: Center;
+    Display: Inline-Block;
+    Color: RGBa(0,0,0,.8);
+    Font-Weight: 100;
+    Font-Family: "Open Sans", Arial;
+    Overflow: Hidden;
+    White-Space: NoWrap;
+    Text-Overflow: Ellipsis;
+}
+.GaugeMeter[data-style="Semi"] B{
+    Margin: 0 10%;
+    Width: 80%;
+}
+
+.GaugeMeter S,
+.GaugeMeter U{
+    Text-Decoration:None;
+    Font-Size: .30em;
+    Font-Weight: 200;
+    Opacity: .6;
+}
+
+.GaugeMeter B{
+    Color: Black;
+    Font-Weight: 200;
+    Font-Size: 0.85em;
+    Opacity: .8;
+}

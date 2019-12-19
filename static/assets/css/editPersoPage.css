@@ -1,0 +1,140 @@
+form{
+    display: flex;
+    margin-top: 5vh;
+    min-height: 80vh;
+    align-items: inherit;
+    justify-content: space-around;
+}
+
+form textarea{
+    resize: none;
+}
+
+.sect-left, .sect-middle, .sect-right{
+     margin:0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 30vw;
+}
+
+.sect-left figure {
+    width: 20vw;
+    min-width: 300px;
+    height: 20vw; /* To get a 1:1 image format*/
+    min-height: 300px;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 20px 0 20px 0;
+    box-shadow: rgba(0,0,0,0.3) 3px 3px 6px;
+}
+.sect-left figure img{ display: block; width: 20vw;min-width: 300px;}
+
+
+.input-image{
+    overflow: hidden;
+    width: 25vw;
+    margin: 2vh 0;
+    display:flex;
+    flex-direction:column;
+}
+.input-image label{overflow: hidden;}
+
+.input-description{
+    width: 25vw;
+    height: 10vh
+}
+
+.toShow{
+    margin-top: 2vh;
+}
+
+.toShow fieldset{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px 20px ;
+}
+
+/* middle part */
+
+.checkBox-studyYear{
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+}
+#minor, #orient{
+    width: 28vw;
+    margin-top: 2vh;
+}
+
+.topSkills{
+    margin-top: 5vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.topSkills .form-group{
+    display: flex;
+}
+
+.topSkills-lang{
+    width: 20vw;
+}
+
+.topSkills-num{
+    width: 10vw;
+}
+
+.otherSkills{
+    width: 30vw;
+    height: 10vh
+}
+
+.input-username{
+   width: 10vw;
+}
+
+.input-dataSep, .input-link{
+    width: 15vw;
+}
+
+.btn-save{
+    margin-top: 5vh;
+}
+
+/* ----- Media screen ----- */
+
+@media only screen and (max-width: 1470px) {
+    .sect-left, .sect-middle, .sect-right{ width: 100vw; margin: 2vh 0;}
+
+    form{
+        flex-direction: column;
+    }
+
+    .input-image, .input-description , #minor, #orient, .topSkills, .otherSkills{
+        width: 70vw;
+    }
+
+    .checkBox-studyYear{
+        width: 60vw;
+    }
+
+    .topSkills-lang{
+        width: 45vw;
+    }
+
+    .topSkills-num{
+        width: 25vw;
+    }
+
+    .input-username{
+        width: 30vw;
+    }
+
+    .input-dataSep, .input-link{
+        width: 40vw;
+    }
+}

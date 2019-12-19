@@ -1,0 +1,40 @@
+{
+  "name": "Sinf-Website",
+  "version": "1.0.0",
+  "description": "Site pour les étudiants de sciences informatiques",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasBeuel/Sinf-Website.git"
+  },
+  "keywords": [
+    "nodeJS",
+    "mongo",
+    "SINF",
+    "UCLouvain"
+  ],
+  "author": "Nicolas BEUEL & Félix Gaudin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/NicolasBeuel/Sinf-Website/issues"
+  },
+  "homepage": "https://github.com/NicolasBeuel/Sinf-Website#readme",
+  "dependencies": {
+      "bcrypt": "^3.0.7",
+      "body-parser": "^1.19.0",
+      "consolidate": "^0.15.1",
+      "express": "^4.17.1",
+      "express-session": "^1.17.0",
+      "hogan.js": "^3.0.2",
+      "image-size": "^0.8.3",
+      "json-query": "^2.2.2",
+      "mongodb": "^3.3.5",
+      "multer": "^1.4.2",
+      "nodemailer": "^6.3.1",
+      "ejs" : "^3.0.1"
+  }
+}

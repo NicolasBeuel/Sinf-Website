@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- sources -->
+        <%- include('comp-link'); -%>
+        <title><%= student.fullname %> | Sinf Students</title>
+        <link rel="stylesheet" href="/css/persoPage.css">
+    </head>
+
+    <body>
+        <!-- header -->
+        <%- include('comp-header'); -%>
+
+
+        <section style="display: none">
+            <div class="sect-left">
+                <div class="perso">
+                    <figure>
+                        <img src="<%= student.profilePicture %>" alt="User picture">
+                    </figure>
+                    <h1><%= student.fullname %></h1>
+                    <h2><%= student.studyYear %><%=(student.studyYear && student.option) ? " - " : ' '%><%= student.option %></h2>
+                    <p><%= student.description %></p>
+                </div>
+            </div>
+
+            <div class="sect-middle">
+
+                <h3>Top Skills</h3>
+
+                <div class="topSkills"> <!-- Doc for Gauge https://github.com/Mictronics/GaugeMeter -->
+
+                    <% if (locals.student.topSkills) { %>
+                    <%if(locals.student.topSkills[2]){%>
+                    <div class="topSkill">
+                        <div class="GaugeMeter" data-bind="gaugeValue: <%= student.topSkills[2].pourcent %>"  data-size=220 data-width=5 data-style="Arch" data-animationstep="1" data-color="<%= student.topSkills[2].color1 %>"></div>
+
+                        <figure>
+                            <img src="<%= student.topSkills[2].icon %>" alt="">
+                        </figure>
+
+                        <div class="topSkill-inf">
+                            <span><%= student.topSkills[2].name %></span>
+                            <span style="color : <%= student.topSkills[2].color2 %>"><%= student.topSkills[2].pourcent %>%</span>
+                        </div>
+                    </div>
+                    <%}if(locals.student.topSkills[1]){%>
+                    <div class="topSkill">
+                        <div class="GaugeMeter" data-bind="gaugeValue: <%= student.topSkills[1].pourcent %>"  data-size=300 data-width=5 data-style="Arch" data-animationstep="1" data-color="<%= student.topSkills[1].color1 %>"></div>
+
+                        <figure style="width: 160px;height: 160px;margin-top:-225px;margin-left: 73px;">
+                            <img src="<%= student.topSkills[1].icon %>" alt="">
+                        </figure>
+
+                        <div class="topSkill-inf" style="margin-top:-50px;width : 300px;">
+                            <span><%= student.topSkills[1].name %></span>
+                            <span style="color : <%= student.topSkills[1].color2 %>"><%= student.topSkills[1].pourcent %>%</span>
+                        </div>
+                    </div>
+                    <%}if(locals.student.topSkills[3]){%>
+                    <div class="topSkill">
+                        <div class="GaugeMeter" data-bind="gaugeValue: <%= student.topSkills[3].pourcent %>"  data-size=220 data-width=5 data-style="Arch" data-animationstep="1" data-color="<%= student.topSkills[3].color1 %>"></div>
+
+                        <figure>
+                            <img src="<%= student.topSkills[3].icon %>" alt="">
+                        </figure>
+
+                        <div class="topSkill-inf">
+                            <span><%= student.topSkills[3].name %></span>
+                            <span style="color : <%= student.topSkills[3].color2 %>"><%= student.topSkills[3].pourcent %>%</span>
+                        </div>
+                    </div>
+                    <% }} %>
+                </div>
+
+                <h3>Contacts & Links</h3>
+
+                <div class="contacts">
+                    <%if(locals.student.links){%>
+                    <% Object.keys(student.links).forEach( function(e){ %>
+                    <a class="contact" href="<%= student.links[e].link %>" dataToCopy="<%= student.links[e].data %>">
+                        <figure>
+                            <img src="<%= student.links[e].icon %>" alt="">
+                        </figure>
+
+                        <span><%= student.links[e].username %></span>
+                    </a>
+                    <% })} %>
+                </div>
+            </div>
+
+            <div class="sect-right">
+                <h3>Other Skills</h3>
+                <div class="otherSkills">
+                    <ul>
+                        <%if(student.otherSkills){%>
+                        <% student.otherSkills.map((e)=>{ %>
+                        <li><%= e %></li>
+                        <% })} %>
+                    </ul>
+
+                </div>
+            </div>
+
+        </section>
+
+        <div id="load" style="height: 100vh;"></div> <!-- Escape display bug when load the page -->
+        <!-- footer -->
+        <%- include('comp-footer&script'); -%>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+        <script type='text/javascript' src="/js/GaugeMeter.js"></script>
+        <script type="text/javascript">
+            function copyID(elem) {
+                elem = elem.nodeName != "A" ? elem.parentElement: elem; //If click the icon
+                console.log(elem)
+                let copyText = elem.getAttribute("dataToCopy")
+                navigator.clipboard.writeText(copyText).then(() => { //Copy to clipboard
+                    alertify.set('notifier','position', 'top-center');
+                    alertify.notify("Data from \"" + elem.getElementsByTagName('span')[0].firstChild.data + "\"\n added to clipboard", 'success', 5);
+                })
+            }
+            $(document).ready(function () {
+
+                $(".GaugeMeter").gaugeMeter();
+                ko.bindingHandlers.gaugeValue = {
+                    init: function(element, valueAccessor) {
+                        $(element).gaugeMeter({ percent: ko.unwrap(valueAccessor()) });
+                    }
+                };
+
+                var myViewModel = {
+                    Percent: ko.observable(15)
+                };
+
+                sleep(100).then(() => { // Display the page smoother
+                    document.getElementsByTagName("section")[0].style.display = "flex";
+                    document.getElementById("load").style.display = "none";
+                    sleep(400).then(() => {
+                        ko.applyBindings(myViewModel);
+                    })
+                });
+
+                //For the contact copy to clipboard
+                let tmp = document.getElementsByClassName('contact');
+                for(let i = 0; i<tmp.length;i++){
+                    if(tmp[i].getAttribute("dataToCopy") !== ""){
+                        tmp[i].addEventListener('click', (evt => {
+                            evt.preventDefault();
+                            copyID(event.target.parentElement || evt.originalTarget.parentElement || evt.srcElement.parentElement)
+                        }))
+                    }
+                }
+
+
+            })
+        </script>
+    </body>
+</html>

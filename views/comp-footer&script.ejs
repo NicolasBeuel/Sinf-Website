@@ -1,0 +1,37 @@
+<footer id="footer">
+    <div>
+        <a href="/">Index</a>
+        <a href="/loginSignup">Log in | Sign up</a>
+        <a href="/editPersoPage">Edit personal data</a>
+    </div>
+    <span style="margin: 2vh 0;">Source code is available on <a href="https://github.com/NicolasBeuel/Sinf-Website">GitHub</a>.</span>
+    <span>Made with ❤️ by <strong>Nicolas Beuel</strong> and <strong>Félix Gaudin</strong>.</span>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/header.js"></script>
+<script type="text/javascript">
+    $( document ).ready(function() {
+        try {
+            document.getElementById("cookieBtn").addEventListener("click",()=>{
+                $.post("/ajaxCookieAlert",
+                    {
+                        showCookieAlert: false
+                    },
+                    (data, status) => {
+                        console.log("Data: " + data + "\nStatus: " + status);
+                    });
+            })
+        }
+        catch(err) {
+            //pass
+        }
+
+        if($(location).attr('href').split($(location).attr('host'))[1].split("?")[0] !=="/"){ //For all pages except index
+            document.getElementById("searchBar").addEventListener("click",()=>{
+                window.location.href = "/?focus=true"
+            })
+        }
+    });
+</script>

@@ -1,0 +1,12 @@
+<% students.map((student)=>{ %>
+    <a href="/persoPage?user=<%= student._id %>" class="persoImage">
+        <figure>
+            <img src="<%= student.profilePicture %>" alt="User picture">
+        </figure>
+
+        <div class="desc">
+            <span><%= student.fullname %></span>
+            <span><%= student.studyYear %></span>
+        </div>
+    </a>
+<% }) %>
