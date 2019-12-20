@@ -284,7 +284,7 @@ MongoClient.connect('mongodb://localhost:27017/',  {useUnifiedTopology: true},(e
                 if(doc !== null && doc.changePsswrd["passKey"] === key){
                     bcrypt.genSalt(7,(err, salt) => { // lib https://www.npmjs.com/package/bcrypt
                         bcrypt.hash(req.body.password, salt, (err, hash) => {
-                            dbo.collection("users").updateOne({_id:doc._id}, {$set:{password : hash}}, (err, data) => {
+                            dbo.collection("users").updateOne({_id:doc._id}, {$set:{password : hash, "changePsswrd.passKey" : -1}}, (err, data) => {
                                 if (err) throw err;
                                 res.redirect('/loginSignup');
                             })
