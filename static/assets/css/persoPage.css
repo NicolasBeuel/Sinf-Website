@@ -186,6 +186,7 @@ section {
 .otherSkills li {
     font-size: 1.2em;
     margin: 5px;
+    word-wrap: break-word;
     font-family: 'Orbitron', sans-serif;
 }
 
