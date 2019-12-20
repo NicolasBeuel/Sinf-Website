@@ -58,13 +58,19 @@ section {
     font-size: 1.1em;
 }
 
-.perso p {
+.perso pre {
     padding: 0 10px;
     margin: 0;
     margin-bottom: 20px;
     width: 100%;
     text-align: left;
-    font-size: 1.1em;
+    font-size: 1em;
+    overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
 }
 
 .sect-middle h3, .sect-right h3{
