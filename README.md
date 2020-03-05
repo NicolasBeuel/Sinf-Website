@@ -57,3 +57,5 @@ Note: Etant donné que les fichiers servant à la sécurisation de la connexion 
 1. Les fichiers *cert.pem* et *key.pem* ayant été rendus publiques, il est indispensable de les changer dans le cas d'une utilisation de ce projet autre que privée et locale.
 
 2. Ce projet utilise deux ports de communication, le 80 (http) et le 443 (https). Il est à noter qu'ici l'utilisation du port 80 ne sert qu'à la redirection vers le port 443.
+
+## coucou
